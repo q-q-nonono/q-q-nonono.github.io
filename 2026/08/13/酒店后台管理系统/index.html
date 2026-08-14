@@ -19,12 +19,12 @@
   <meta name="author" content="q-q-nonono">
   <meta name="keywords" content="技术,博客,编程,开发">
   
-    <meta name="description" content="这是我做的一个前端页面，基于开源项目 Vue Vben Admin，我额外增加了电商后台管理功能，使用 verbal 部署前端静态页面，做到纯前端可运行，项目地址在  GitHub - q-q-nonono&#x2F;vue-vben-admin。页面部署在 https:&#x2F;&#x2F;vue-vben-admin-backend-mock-green.vercel.app&#x2F; 测试账号：vben&#x2F;123456">
+    <meta name="description" content="基于 vue-vben-admin 的纯前端二次开发，后续会加上mock数据。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="酒店后台管理系统">
 <meta property="og:url" content="https://q-q-nonono.github.io/2026/08/13/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="q-q-nonono 的博客">
-<meta property="og:description" content="这是我做的一个前端页面，基于开源项目 Vue Vben Admin，我额外增加了电商后台管理功能，使用 verbal 部署前端静态页面，做到纯前端可运行，项目地址在  GitHub - q-q-nonono&#x2F;vue-vben-admin。页面部署在 https:&#x2F;&#x2F;vue-vben-admin-backend-mock-green.vercel.app&#x2F; 测试账号：vben&#x2F;123456">
+<meta property="og:description" content="基于 vue-vben-admin 的纯前端二次开发，后续会加上mock数据。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://q-q-nonono.github.io/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2000.48.48-1.png">
 <meta property="og:image" content="https://q-q-nonono.github.io/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2013.55.34.png">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://q-q-nonono.github.io/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2014.12.03.png">
 <meta property="og:image" content="https://q-q-nonono.github.io/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2014.33.44.png">
 <meta property="article:published_time" content="2026-08-13T14:30:36.000Z">
-<meta property="article:modified_time" content="2026-08-14T09:09:30.487Z">
+<meta property="article:modified_time" content="2026-08-14T11:00:21.118Z">
 <meta property="article:author" content="q-q-nonono">
 <meta property="article:tag" content="TypeScript">
 <meta property="article:tag" content="Vue3">
@@ -339,7 +339,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7k 字
+          7.2k 字
         
       </span>
     
@@ -350,7 +350,7 @@
         
         
         
-          59 分钟
+          61 分钟
         
       </span>
     
@@ -394,7 +394,12 @@
             
               <div class="markdown-body">
                 
-                <h2 id="一、为什么选择-Vben-Admin"><a href="#一、为什么选择-Vben-Admin" class="headerlink" title="一、为什么选择 Vben Admin ?"></a>一、为什么选择 Vben Admin ?</h2><p>在前端项目中，后台管理系统所涉及到的技术栈比较广，也比较贴近现实生活，同时这类项目也比较成熟，做起来不容易翻车。最终选择 GitHub 上的 vue-vben-admin，原因主要有四点：</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是我做的一个前端页面，基于开源项目 Vue Vben Admin，我额外增加了电商后台管理功能，使用 verbal 部署前端静态页面，做到纯前端可运行。</p>
+<p>项目地址在  GitHub - q-q-nonono&#x2F;vue-vben-admin。</p>
+<p>页面部署在 <a target="_blank" rel="noopener" href="https://vue-vben-admin-backend-mock-green.vercel.app/">https://vue-vben-admin-backend-mock-green.vercel.app/</a> </p>
+<p>测试账号：vben&#x2F;123456</p>
+<hr>
+<h2 id="一、为什么选择-Vben-Admin"><a href="#一、为什么选择-Vben-Admin" class="headerlink" title="一、为什么选择 Vben Admin ?"></a>一、为什么选择 Vben Admin ?</h2><p>在前端项目中，后台管理系统所涉及到的技术栈比较广，也比较贴近现实生活，同时这类项目也比较成熟，做起来不容易翻车。最终选择 GitHub 上的 vue-vben-admin，原因主要有四点：</p>
 <p>1.企业级架构:monorepo 组织、多应用支持、完善的权限体系</p>
 <p>2.TypeScript 全覆盖:完整的类型提示，对学习 TS 很有帮助</p>
 <p>3.丰富的组件封装:表格、表单、搜索都有现成的封装</p>
