@@ -26,13 +26,19 @@
 <meta property="og:site_name" content="q-q-nonono 的博客">
 <meta property="og:description" content="这是我做的一个前端页面，基于开源项目 Vue Vben Admin，我额外增加了电商后台管理功能，使用 verbal 部署前端静态页面，做到纯前端可运行，项目地址在  GitHub - q-q-nonono&#x2F;vue-vben-admin。页面部署在 https:&#x2F;&#x2F;vue-vben-admin-backend-mock-green.vercel.app&#x2F; 测试账号：vben&#x2F;123456">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://q-q-nonono.github.io/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2000.48.48-1.png">
+<meta property="og:image" content="https://q-q-nonono.github.io/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2013.55.34.png">
+<meta property="og:image" content="https://q-q-nonono.github.io/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2014.07.06.png">
+<meta property="og:image" content="https://q-q-nonono.github.io/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2014.12.03.png">
+<meta property="og:image" content="https://q-q-nonono.github.io/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2014.33.44.png">
 <meta property="article:published_time" content="2026-08-13T14:30:36.000Z">
-<meta property="article:modified_time" content="2026-08-14T08:16:05.314Z">
+<meta property="article:modified_time" content="2026-08-14T09:09:30.487Z">
 <meta property="article:author" content="q-q-nonono">
 <meta property="article:tag" content="TypeScript">
 <meta property="article:tag" content="Vue3">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://q-q-nonono.github.io/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2000.48.48-1.png">
   
   
   
@@ -333,7 +339,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.4k 字
+          7k 字
         
       </span>
     
@@ -344,7 +350,7 @@
         
         
         
-          62 分钟
+          59 分钟
         
       </span>
     
@@ -402,12 +408,12 @@
 <h2 id="三、新增功能实现：电商三大模块"><a href="#三、新增功能实现：电商三大模块" class="headerlink" title="三、新增功能实现：电商三大模块"></a>三、新增功能实现：电商三大模块</h2><p>我实现了三个核心模块：<strong>商品管理</strong>、<strong>分类管理</strong>、<strong>订单管理</strong>。</p>
 <h3 id="3-1-商品管理"><a href="#3-1-商品管理" class="headerlink" title="3.1 商品管理"></a>3.1 商品管理</h3><p>商品管理是电商后台最核心的模块,包含<strong>新增</strong>、<strong>编辑</strong>、<strong>删除</strong>、<strong>查询</strong>四个完整操作</p>
 <p>这是系统的列表页：</p>
-<p>![alt text](&#x2F;img&#x2F;酒店后台管理系统&#x2F;截屏2026-08-14 00.48.48-1.png)</p>
+<p><img src="/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2000.48.48-1.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <p>列表页基于 Vben Admin 封装的 VxeTable 组件，用代理配置（proxyConfig） 自动处理分页、搜索和排序的联动：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-attr">proxyConfig</span>: &#123;<br>  <span class="hljs-attr">ajax</span>: &#123;<br>    <span class="hljs-attr">query</span>: <span class="hljs-title function_">async</span> (&#123; page &#125;: <span class="hljs-built_in">any</span>, <span class="hljs-attr">formValues</span>: <span class="hljs-built_in">any</span>) =&gt; &#123;<br>      <span class="hljs-keyword">const</span> &#123; items, total &#125; = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getProductListApi</span>(&#123;<br>        <span class="hljs-attr">page</span>: page.<span class="hljs-property">currentPage</span>,<br>        <span class="hljs-attr">pageSize</span>: page.<span class="hljs-property">pageSize</span>,<br>        ...formValues,<br>      &#125;);<br>      <span class="hljs-keyword">return</span> &#123; items, total &#125;;<br>    &#125;,<br>  &#125;,<br>&#125;,<br></code></pre></td></tr></table></figure>
 
 <p>(1) 新增&#x2F;编辑：<strong>独立路由页面</strong></p>
-<p>![alt text](&#x2F;img&#x2F;酒店后台管理系统&#x2F;截屏2026-08-14 13.55.34.png)</p>
+<p><img src="/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2013.55.34.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <p>新增和编辑没有使用常见的弹窗方式，而是采用独立的路由页面：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">/ecommerce/product/add        → 新增商品<br>/ecommerce/product/edit/:id   → 编辑商品<br></code></pre></td></tr></table></figure>
 
@@ -432,7 +438,7 @@
 <p>(3)查询&#x2F;搜索:通过 formOptions.schema 声明式配置，支持商品名称搜索、分类筛选、状态筛选：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-attr">formOptions</span>: &#123;<br>  <span class="hljs-attr">schema</span>: [<br>    &#123;<br>      <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;Input&#x27;</span>,<br>      <span class="hljs-attr">fieldName</span>: <span class="hljs-string">&#x27;name&#x27;</span>,<br>      <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;商品名称&#x27;</span>,<br>      <span class="hljs-attr">componentProps</span>: &#123; <span class="hljs-attr">placeholder</span>: <span class="hljs-string">&#x27;请输入商品名称&#x27;</span> &#125;,<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;Select&#x27;</span>,<br>      <span class="hljs-attr">fieldName</span>: <span class="hljs-string">&#x27;category&#x27;</span>,<br>      <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;分类&#x27;</span>,<br>      <span class="hljs-attr">componentProps</span>: <span class="hljs-function">() =&gt;</span> (&#123;<br>        <span class="hljs-attr">allowClear</span>: <span class="hljs-literal">true</span>,<br>        <span class="hljs-attr">options</span>: categoryOptions.<span class="hljs-property">value</span>,  <span class="hljs-comment">// 动态加载</span><br>      &#125;),<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;Select&#x27;</span>,<br>      <span class="hljs-attr">fieldName</span>: <span class="hljs-string">&#x27;status&#x27;</span>,<br>      <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;状态&#x27;</span>,<br>      <span class="hljs-attr">componentProps</span>: &#123;<br>        <span class="hljs-attr">options</span>: [<br>          &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;上架&#x27;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&#x27;上架&#x27;</span> &#125;,<br>          &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;下架&#x27;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&#x27;下架&#x27;</span> &#125;,<br>          &#123; <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;缺货&#x27;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&#x27;缺货&#x27;</span> &#125;,<br>        ],<br>      &#125;,<br>    &#125;,<br>  ],<br>&#125;,<br></code></pre></td></tr></table></figure>
 
-<h3 id="3-2-分类管理"><a href="#3-2-分类管理" class="headerlink" title="3.2 分类管理"></a>3.2 分类管理</h3><p>![alt text](&#x2F;img&#x2F;酒店后台管理系统&#x2F;截屏2026-08-14 14.07.06.png)</p>
+<h3 id="3-2-分类管理"><a href="#3-2-分类管理" class="headerlink" title="3.2 分类管理"></a>3.2 分类管理</h3><p><img src="/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2014.07.06.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <p>分类管理同样是完整 CRUD，和商品管理结构类似。值得说的是删除的保护逻辑——如果分类下还有商品，不允许删除：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> <span class="hljs-title function_">deleteCategoryApi</span>(row.<span class="hljs-property">id</span>);<br><span class="hljs-keyword">if</span> (result.<span class="hljs-property">success</span> === <span class="hljs-literal">false</span>) &#123;<br>  message.<span class="hljs-title function_">warning</span>(result.<span class="hljs-property">message</span> || <span class="hljs-string">&#x27;该分类下还有商品，无法删除&#x27;</span>);<br>  <span class="hljs-keyword">return</span>;<br>&#125;<br>message.<span class="hljs-title function_">success</span>(<span class="hljs-string">&#x27;删除成功！&#x27;</span>);<br>gridApi.<span class="hljs-title function_">reload</span>();<br></code></pre></td></tr></table></figure>
 
@@ -448,7 +454,7 @@
 
 <p>这样每次进入表单页面都能拿到最新的分类数据。</p>
 <p>但让我第一次意识到：在 SPA 中，页面之间不会自动共享数据，需要主动刷新或借助全局状态管理。</p>
-<h3 id="3-3-订单管理"><a href="#3-3-订单管理" class="headerlink" title="3.3 订单管理"></a>3.3 订单管理</h3><p>![alt text](&#x2F;img&#x2F;酒店后台管理系统&#x2F;截屏2026-08-14 14.12.03.png)</p>
+<h3 id="3-3-订单管理"><a href="#3-3-订单管理" class="headerlink" title="3.3 订单管理"></a>3.3 订单管理</h3><p><img src="/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2014.12.03.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <p>最有意思的是订单状态流转:</p>
 <p>状态定义：待付款 → 待发货 → 已发货 → 已完成 &#x2F; 已取消</p>
 <p>不同状态用不同颜色标签区分：</p>
@@ -474,7 +480,7 @@
 <p>Mock 数据用 @faker-js&#x2F;faker 动态生成，每次刷新都不一样。</p>
 <p>这样做的优点是：<strong>前端开发完全不依赖后端</strong>，自己就能独立跑通全流程，实现前后端分离，极大地提高了效率并且符合真实场景。</p>
 <hr>
-<h2 id="五、部署上线：Vercel"><a href="#五、部署上线：Vercel" class="headerlink" title="五、部署上线：Vercel"></a>五、部署上线：Vercel</h2><p>![alt text](&#x2F;img&#x2F;酒店后台管理系统&#x2F;截屏2026-08-14 14.33.44.png)</p>
+<h2 id="五、部署上线：Vercel"><a href="#五、部署上线：Vercel" class="headerlink" title="五、部署上线：Vercel"></a>五、部署上线：Vercel</h2><p><img src="/img/%E9%85%92%E5%BA%97%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E6%88%AA%E5%B1%8F2026-08-14%2014.33.44.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <p>部署选择了 <strong>Vercel</strong>，主要是因为免费，和 GitHub 无缝集成，HTTPS 自动配置。</p>
 <p>推送步骤：</p>
 <p>1.代码推送到 GitHub</p>
